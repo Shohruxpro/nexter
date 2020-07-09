@@ -70,16 +70,27 @@
 
   &__label {
     position: fixed;
+
+    @media only screen and (max-width: $bp-large) {
+      top: 1.2rem;
+    }
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 50%;
     cursor: pointer;
     z-index: 2000;
     background-color: $color-primary;
+
+    @media only screen and (max-width: $bp-medium) {
+      position: absolute;
+    }
   }
 
   &__background {
     position: fixed;
+    @media only screen and (max-width: $bp-medium) {
+      position: static;
+    }
 
     height: 4rem;
     width: 4rem;
@@ -91,10 +102,7 @@
 
   &__input:checked ~ &__background {
     transform: scale(100);
-  }
-  &__input:checked ~ &__background &__list {
-    transform: scale(1);
-    z-index: 5000;
+    position: fixed;
   }
   &__list {
     position: absolute;
@@ -107,6 +115,8 @@
     opacity: 1;
     visibility: hidden;
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.5);
+
+    position: fixed;
   }
   &__input:checked ~ &__list {
     opacity: 1;
